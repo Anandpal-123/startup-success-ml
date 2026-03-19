@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Start-Up Company Success Prediction</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+body {
+  background-image: url({{ url_for('static', filename='images/back.jpg') }});
+}
+</style>
+<script LANGUAGE="Javascript">
+function validate(){
+
+	var x=document.forms["f1"]["t1"].value;
+	var y=document.forms["f1"]["t2"].value;
+	var a=document.forms["f1"]["t3"].value;
+	var b=document.forms["f1"]["t4"].value;
+	var c=document.forms["f1"]["t5"].value;
+	var d=document.forms["f1"]["t6"].value;
+	var e=document.forms["f1"]["t7"].value;
+	var f=document.forms["f1"]["t8"].value;
+	var g=document.forms["f1"]["t9"].value;
+
+	if(x==""){ alert("Relationship must be entered"); document.f1.t1.focus(); return false; }
+	if(y==""){ alert("Funding Rounds must be entered"); document.f1.t2.focus(); return false; }
+	if(a==""){ alert("Funding Total USD must be entered"); document.f1.t3.focus(); return false; }
+	if(b==""){ alert("Milestones must be entered"); document.f1.t4.focus(); return false; }
+	if(c==""){ alert("Average Participants must be entered"); document.f1.t5.focus(); return false; }
+	if(d==""){ alert("Latitude must be entered"); document.f1.t6.focus(); return false; }
+	if(e==""){ alert("Longitude must be entered"); document.f1.t7.focus(); return false; }
+	if(f==""){ alert("City must be entered"); document.f1.t8.focus(); return false; }
+	if(g==""){ alert("Category Code must be entered"); document.f1.t9.focus(); return false; }
+
+	return true;
+}
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+
+	<div id="header">
+		<div id="logo">
+			<center>
+				<font size="4" color="white">
+				An Efficient Novel Approach for Prediction of Start-Up Company Success Rates Through ML Paradigms
+				</font>
+			</center>
+		</div>
+	</div>
+
+	<div id="menu">
+		<ul><center>
+			<li><a href="index"><font color="white">Home</font></a></li>
+			<li><a href="PredictSuccess"><font color="white">Start-Up Success Prediction</font></a></li>
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+
+	<div id="splash">
+		<img class="pic" src={{ url_for('static', filename='images/investor.jpg') }} width="870" height="230" alt="" />
+	</div>
+
+	<center>
+	<form name="f1" method="post" action="/PredictAction" OnSubmit="return validate()">
+	<br/>
+
+	<font color="blue"><center>{{ data|safe }}</center></font>
+
+	<table align="center" width="400">
+
+	<tr>
+		<td>Relationships</td>
+		<td><input type="number" name="t1" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Funding Rounds</td>
+		<td><input type="number" name="t2" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Funding Total USD</td>
+		<td><input type="number" name="t3" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Milestones</td>
+		<td><input type="number" name="t4" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Average Participants</td>
+		<td><input type="number" name="t5" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Latitude</td>
+		<td><input type="number" step="any" name="t6" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Longitude</td>
+		<td><input type="number" step="any" name="t7" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>City</td>
+		<td><input type="text" name="t8" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td>Category Code</td>
+		<td><input type="text" name="t9" size="25"/></td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td><input type="submit" value="Submit"></td>
+	</tr>
+
+	</table>
+	<br/><br/><br/><br/>
+	</form>
+	</center>
+
+</div>
+</body>
+</html>
